@@ -30,149 +30,149 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            textBox1 = new TextBox();
-            button1 = new Button();
-            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            checkBox1 = new CheckBox();
-            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            maxTextbox = new TextBox();
+            sortButton = new Button();
+            complexityChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            dataGridView = new DataGridView();
+            quickSortColumn = new DataGridViewTextBoxColumn();
+            bubbleSortColumn = new DataGridViewTextBoxColumn();
+            selectionSortColumn = new DataGridViewTextBoxColumn();
+            shellSortColumn = new DataGridViewTextBoxColumn();
+            bogoSortColumn = new DataGridViewTextBoxColumn();
+            bogoCheckBox = new CheckBox();
+            ((System.ComponentModel.ISupportInitialize)complexityChart).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // maxTextbox
             // 
-            textBox1.Location = new Point(12, 12);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Array Length";
-            textBox1.Size = new Size(151, 27);
-            textBox1.TabIndex = 1;
-            textBox1.TextChanged += textBox1_TextChanged;
-            textBox1.KeyPress += textBox1_KeyPress;
+            maxTextbox.Location = new Point(12, 12);
+            maxTextbox.Name = "maxTextbox";
+            maxTextbox.PlaceholderText = "Array Length";
+            maxTextbox.Size = new Size(151, 27);
+            maxTextbox.TabIndex = 1;
+            maxTextbox.TextChanged += maxTextbox_TextChanged;
+            maxTextbox.KeyPress += maxTextbox_KeyPress;
             // 
-            // button1
+            // sortButton
             // 
-            button1.Enabled = false;
-            button1.Location = new Point(169, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 27);
-            button1.TabIndex = 2;
-            button1.Text = "SORT";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            sortButton.Enabled = false;
+            sortButton.Location = new Point(169, 12);
+            sortButton.Name = "sortButton";
+            sortButton.Size = new Size(94, 27);
+            sortButton.TabIndex = 2;
+            sortButton.Text = "SORT";
+            sortButton.UseVisualStyleBackColor = true;
+            sortButton.Click += sortButton_Click;
             // 
-            // chart1
+            // complexityChart
             // 
-            chart1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            complexityChart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             chartArea1.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea1);
-            chart1.Location = new Point(17, 180);
-            chart1.Name = "chart1";
-            chart1.Size = new Size(915, 373);
-            chart1.TabIndex = 3;
-            chart1.Text = "chart1";
+            complexityChart.ChartAreas.Add(chartArea1);
+            complexityChart.Location = new Point(17, 180);
+            complexityChart.Name = "complexityChart";
+            complexityChart.Size = new Size(915, 373);
+            complexityChart.TabIndex = 3;
+            complexityChart.Text = "complexityChart";
             title1.Name = "Title1";
             title1.Text = "Complexity of sorting algorithms";
-            chart1.Titles.Add(title1);
+            complexityChart.Titles.Add(title1);
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            dataGridView1.Location = new Point(17, 58);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(915, 116);
-            dataGridView1.TabIndex = 4;
-            dataGridView1.Rows.Add(1);
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { quickSortColumn, bubbleSortColumn, selectionSortColumn, shellSortColumn, bogoSortColumn });
+            dataGridView.Location = new Point(17, 58);
+            dataGridView.Name = "dataGridView";
+            dataGridView.ReadOnly = true;
+            dataGridView.RowHeadersWidth = 51;
+            dataGridView.Size = new Size(915, 116);
+            dataGridView.TabIndex = 4;
+            dataGridView.Rows.Add(1);
             // 
-            // Column1
+            // quickSortColumn
             // 
-            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column1.HeaderText = "Quick Sort";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
+            quickSortColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            quickSortColumn.HeaderText = "Quick Sort";
+            quickSortColumn.MinimumWidth = 6;
+            quickSortColumn.Name = "quickSortColumn";
+            quickSortColumn.ReadOnly = true;
             // 
-            // Column2
+            // bubbleSortColumn
             // 
-            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column2.HeaderText = "Bubble Sort";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
+            bubbleSortColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            bubbleSortColumn.HeaderText = "Bubble Sort";
+            bubbleSortColumn.MinimumWidth = 6;
+            bubbleSortColumn.Name = "bubbleSortColumn";
+            bubbleSortColumn.ReadOnly = true;
             // 
-            // Column3
+            // selectionSortColumn
             // 
-            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column3.HeaderText = "Selection Sort";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
+            selectionSortColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            selectionSortColumn.HeaderText = "Selection Sort";
+            selectionSortColumn.MinimumWidth = 6;
+            selectionSortColumn.Name = "selectionSortColumn";
+            selectionSortColumn.ReadOnly = true;
             // 
-            // Column4
+            // shellSortColumn
             // 
-            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column4.HeaderText = "Shell Sort";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
+            shellSortColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            shellSortColumn.HeaderText = "Shell Sort";
+            shellSortColumn.MinimumWidth = 6;
+            shellSortColumn.Name = "shellSortColumn";
+            shellSortColumn.ReadOnly = true;
             // 
-            // Column5
+            // bogoSortColumn
             // 
-            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column5.HeaderText = "Bogo Sort";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
+            bogoSortColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            bogoSortColumn.HeaderText = "Bogo Sort";
+            bogoSortColumn.MinimumWidth = 6;
+            bogoSortColumn.Name = "bogoSortColumn";
+            bogoSortColumn.ReadOnly = true;
             // 
-            // checkBox1
+            // bogoCheckBox
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(800, 14);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(134, 24);
-            checkBox1.TabIndex = 5;
-            checkBox1.Text = "Allow Bogosort";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            bogoCheckBox.AutoSize = true;
+            bogoCheckBox.Location = new Point(800, 14);
+            bogoCheckBox.Name = "bogoCheckBox";
+            bogoCheckBox.Size = new Size(134, 24);
+            bogoCheckBox.TabIndex = 5;
+            bogoCheckBox.Text = "Allow Bogosort";
+            bogoCheckBox.UseVisualStyleBackColor = true;
+            bogoCheckBox.CheckedChanged += bogoCheckBox_CheckedChanged;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(946, 565);
-            Controls.Add(checkBox1);
-            Controls.Add(dataGridView1);
-            Controls.Add(chart1);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(bogoCheckBox);
+            Controls.Add(dataGridView);
+            Controls.Add(complexityChart);
+            Controls.Add(sortButton);
+            Controls.Add(maxTextbox);
             Name = "Form1";
             Text = "Sort Complexity Comparison Engine";
-            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)complexityChart).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private TextBox textBox1;
-        private Button button1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private CheckBox checkBox1;
+        private TextBox maxTextbox;
+        private Button sortButton;
+        private System.Windows.Forms.DataVisualization.Charting.Chart complexityChart;
+        private DataGridView dataGridView;
+        private DataGridViewTextBoxColumn quickSortColumn;
+        private DataGridViewTextBoxColumn bubbleSortColumn;
+        private DataGridViewTextBoxColumn selectionSortColumn;
+        private DataGridViewTextBoxColumn shellSortColumn;
+        private DataGridViewTextBoxColumn bogoSortColumn;
+        private CheckBox bogoCheckBox;
     }
 }

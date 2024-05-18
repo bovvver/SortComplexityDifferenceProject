@@ -10,9 +10,9 @@ namespace SortComplexityDifferenceProject
             InitializeComponent();
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void maxTextbox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter && textBox1.Text.Length > 0)
+            if (e.KeyChar == (char)Keys.Enter && maxTextbox.Text.Length > 0)
             {
                 UpdateForms();
                 e.Handled = true;
@@ -23,7 +23,7 @@ namespace SortComplexityDifferenceProject
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void sortButton_Click(object sender, EventArgs e)
         {
             UpdateForms();
         }
@@ -31,7 +31,7 @@ namespace SortComplexityDifferenceProject
         private void UpdateForms()
         {
             int operationCounter = 0;
-            int arrayLength = int.Parse(textBox1.Text);
+            int arrayLength = int.Parse(maxTextbox.Text);
             int[] randomArray = ArrayInitializer.InitializeArray(arrayLength);
 
             if (randomArray.Length == 0) return;
@@ -42,7 +42,7 @@ namespace SortComplexityDifferenceProject
             int shellSort = SortingManager.ShellSort(randomArray);
             int bogoSort = 0;
 
-            if (checkBox1.Checked == true)
+            if (bogoCheckBox.Checked == true)
                 bogoSort = SortingManager.BogoSort(randomArray);
 
             int[] resultArray = [quickSort, bubbleSort, selectionSort, shellSort, bogoSort];
@@ -50,24 +50,24 @@ namespace SortComplexityDifferenceProject
             UpdateChart(resultArray);
             UpdateTable(resultArray);
 
-            textBox1.Text = "";
+            maxTextbox.Text = "";
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void maxTextbox_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length < 1) button1.Enabled = false;
-            else button1.Enabled = true;
+            if (maxTextbox.Text.Length < 1) sortButton.Enabled = false;
+            else sortButton.Enabled = true;
         }
 
         private void UpdateChart(int[] values)
         {
             string[] labels = { "Quick Sort", "Bubble Sort", "Selection Sort", "Shell Sort", "Bogo Sort" };
 
-            chart1.Series.Clear();
+            complexityChart.Series.Clear();
 
             var series = new Series();
             series.ChartType = SeriesChartType.Column;
-            chart1.Series.Add(series);
+            complexityChart.Series.Add(series);
 
             for (int i = 0; i < values.Length; i++)
             {
@@ -75,33 +75,33 @@ namespace SortComplexityDifferenceProject
                 point.Label = values[i].ToString();
                 series.Points.Add(point);
 
-                chart1.ChartAreas[0].AxisY.Maximum = values.Max() * 1.1;
-                chart1.ChartAreas[0].AxisX.CustomLabels.Add(i + 0.5, i + 1.5, labels[i]);
+                complexityChart.ChartAreas[0].AxisY.Maximum = values.Max() * 1.1;
+                complexityChart.ChartAreas[0].AxisX.CustomLabels.Add(i + 0.5, i + 1.5, labels[i]);
             }
         }
 
         private void UpdateTable(int[] values)
         {
-            dataGridView1.Rows[0].Cells["Column1"].Value = values[0];
-            dataGridView1.Rows[0].Cells["Column2"].Value = values[1];
-            dataGridView1.Rows[0].Cells["Column3"].Value = values[2];
-            dataGridView1.Rows[0].Cells["Column4"].Value = values[3];
-            dataGridView1.Rows[0].Cells["Column5"].Value = values[4];
+            dataGridView.Rows[0].Cells["quickSortColumn"].Value = values[0];
+            dataGridView.Rows[0].Cells["bubbleSortColumn"].Value = values[1];
+            dataGridView.Rows[0].Cells["selectionSortColumn"].Value = values[2];
+            dataGridView.Rows[0].Cells["shellSortColumn"].Value = values[3];
+            dataGridView.Rows[0].Cells["bogoSortColumn"].Value = values[4];
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void bogoCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (bogoCheckBox.Checked)
             {
                 DialogResult dialogResult = MessageBox.Show("Warning!\nThis algorithm has complexity of O(n!).\nAre you sure you want to continue?", "BOGOSORT WARNING!", MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    checkBox1.Checked = true;
+                    bogoCheckBox.Checked = true;
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    checkBox1.Checked = false;
+                    bogoCheckBox.Checked = false;
                 }
             }
         }
