@@ -1,12 +1,12 @@
-﻿using System.Drawing;
-using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using System.Diagnostics.Metrics;
+using System.Xml.Linq;
 
 namespace SortComplexityDifferenceProject
 {
     internal static class SortingManager
     {
-        public static int BubbleSort(int[] originalArray) {
+        public static int BubbleSort(int[] originalArray) 
+        {
             int[] array = (int[]) originalArray.Clone();
 
             int counter = 0;
@@ -15,6 +15,7 @@ namespace SortComplexityDifferenceProject
 
             for(int i = 0; i < arrayLength; i++)
             {
+                counter++;
                 swapped = false;
                 for(int j = 0; j < arrayLength - i; j++)
                 {
@@ -32,40 +33,40 @@ namespace SortComplexityDifferenceProject
             return counter;
         }
 
-        public static int QuickSort(int[] originalArray, int leftIndex, int rightIndex, ref int counter)
+        public static int QuickSort(int[] originalArray, int leftIndex, int rightIndex, ref int counter, bool isFirstCall = false)
         {
-            int[] array = (int[])originalArray.Clone();
+            int[] array = isFirstCall ? (int[])originalArray.Clone() : originalArray;
 
             if (leftIndex < rightIndex)
             {
-                int pivot = QuickSortPartition(array, leftIndex, rightIndex, ref counter);
-                QuickSort(array, leftIndex, pivot, ref counter);
-                QuickSort(array, pivot + 1, rightIndex, ref counter);
+                int pivotIndex = QuickSortPartition(array, leftIndex, rightIndex, ref counter);
+                QuickSort(array, leftIndex, pivotIndex - 1, ref counter);
+                QuickSort(array, pivotIndex + 1, rightIndex, ref counter);
             }
 
             return counter;
         }
 
-        private static int QuickSortPartition(int[] array, int leftIndex, int rightIndex, ref int counter)
+        static int QuickSortPartition(int[] array, int leftIndex, int rightIndex, ref int counter)
         {
-            int pivot = array[leftIndex];
-            int leftBorder = leftIndex;
+            int pivot = array[rightIndex];
+            int i = (leftIndex - 1);
 
-            for (int i = leftIndex + 1; i <= rightIndex; i++)
+            for (int j = leftIndex; j < rightIndex; j++)
             {
                 counter++;
-                if (array[i] < pivot)
+                if (array[j] <= pivot)
                 {
+                    i++;
                     counter++;
-                    (array[i], array[leftBorder]) = (array[leftBorder], array[i]);
-                    leftBorder++;
+                    (array[i], array[j]) = (array[j], array[i]);
                 }
             }
 
             counter++;
-            (pivot, array[leftBorder]) = (array[leftBorder], pivot);
+            (array[i + 1], array[rightIndex]) = (array[rightIndex], array[i + 1]);
 
-            return leftBorder;
+            return i + 1;
         }
 
         public static int SelectionSort(int[] originalArray)

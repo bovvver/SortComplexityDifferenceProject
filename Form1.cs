@@ -36,7 +36,7 @@ namespace SortComplexityDifferenceProject
 
             if (randomArray.Length == 0) return;
 
-            int quickSort = SortingManager.QuickSort(randomArray, 0, randomArray.Length - 1, ref operationCounter);
+            int quickSort = SortingManager.QuickSort(randomArray, 0, randomArray.Length - 1, ref operationCounter, true);
             int bubbleSort = SortingManager.BubbleSort(randomArray);
             int selectionSort = SortingManager.SelectionSort(randomArray);
             int shellSort = SortingManager.ShellSort(randomArray);
