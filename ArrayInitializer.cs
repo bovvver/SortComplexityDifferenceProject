@@ -6,7 +6,7 @@
         {
             if (length < 3)
             {
-                MessageBox.Show("Minimum length of an array is 3.\nPlease try again.");
+                MessageBox.Show("Minimum length of an array is 3.\nPlease try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return [];
             }
 

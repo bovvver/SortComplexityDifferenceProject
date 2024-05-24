@@ -93,7 +93,7 @@ namespace SortComplexityDifferenceProject
         {
             if (bogoCheckBox.Checked)
             {
-                DialogResult dialogResult = MessageBox.Show("Warning!\nThis algorithm has complexity of O(n!).\nAre you sure you want to continue?", "BOGOSORT WARNING!", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Warning!\nThis algorithm has complexity of O(n!).\nAre you sure you want to continue?", "BogoSort Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (dialogResult == DialogResult.Yes)
                 {
