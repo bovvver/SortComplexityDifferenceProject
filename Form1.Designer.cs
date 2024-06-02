@@ -30,8 +30,8 @@ namespace SortComplexityDifferenceProject
         /// </summary>
         private void InitializeComponent()
         {
-            ChartArea chartArea3 = new ChartArea();
-            Title title3 = new Title();
+            ChartArea chartArea1 = new ChartArea();
+            Title title1 = new Title();
             maxTextbox = new TextBox();
             sortButton = new Button();
             dataGridView = new DataGridView();
@@ -81,8 +81,14 @@ namespace SortComplexityDifferenceProject
             dataGridView.Name = "dataGridView";
             dataGridView.ReadOnly = true;
             dataGridView.RowHeadersWidth = 51;
-            dataGridView.Size = new Size(801, 87);
+            dataGridView.Size = new Size(1102, 181);
             dataGridView.TabIndex = 4;
+            dataGridView.EnableHeadersVisualStyles = false;
+            dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridView.Font, FontStyle.Bold);
+            dataGridView.RowHeadersDefaultCellStyle.Font = new Font(dataGridView.Font, FontStyle.Bold);
+            dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
+            dataGridView.RowHeadersDefaultCellStyle.BackColor = Color.LightGray;
+
             // 
             // quickSortColumn
             // 
@@ -128,7 +134,7 @@ namespace SortComplexityDifferenceProject
             // 
             bogoCheckBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             bogoCheckBox.AutoSize = true;
-            bogoCheckBox.Location = new Point(709, 15);
+            bogoCheckBox.Location = new Point(1010, 15);
             bogoCheckBox.Margin = new Padding(3, 2, 3, 2);
             bogoCheckBox.Name = "bogoCheckBox";
             bogoCheckBox.Size = new Size(107, 19);
@@ -140,23 +146,23 @@ namespace SortComplexityDifferenceProject
             // complexityChart
             // 
             complexityChart.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            chartArea3.Name = "ChartArea1";
-            complexityChart.ChartAreas.Add(chartArea3);
-            complexityChart.Location = new Point(15, 135);
+            chartArea1.Name = "ChartArea1";
+            complexityChart.ChartAreas.Add(chartArea1);
+            complexityChart.Location = new Point(15, 229);
             complexityChart.Margin = new Padding(3, 2, 3, 2);
             complexityChart.Name = "complexityChart";
-            complexityChart.Size = new Size(801, 280);
+            complexityChart.Size = new Size(1102, 491);
             complexityChart.TabIndex = 3;
             complexityChart.Text = "complexityChart";
-            title3.Name = "Title1";
-            title3.Text = "Complexity of sorting algorithms";
-            complexityChart.Titles.Add(title3);
+            title1.Name = "Title1";
+            title1.Text = "Complexity of sorting algorithms";
+            complexityChart.Titles.Add(title1);
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(828, 424);
+            ClientSize = new Size(1129, 729);
             Controls.Add(bogoCheckBox);
             Controls.Add(dataGridView);
             Controls.Add(complexityChart);

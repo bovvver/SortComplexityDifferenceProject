@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Xml.Linq;
 
 namespace SortComplexityDifferenceProject
 {
@@ -61,7 +62,13 @@ namespace SortComplexityDifferenceProject
         {
             int arrayLength = int.Parse(maxTextbox.Text);
 
-            ClearChart();
+            if(arrayLength < 3)
+            {
+                MessageBox.Show("Minimum length of an array is 3.\nPlease try again.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ClearData();
 
             for (int i = MIN_VALUE; i <= arrayLength; i++)
             {
@@ -82,7 +89,7 @@ namespace SortComplexityDifferenceProject
                 int[] resultArray = [quickSort, bubbleSort, selectionSort, shellSort, bogoSort];
 
                 UpdateChart(resultArray, i);
-                UpdateTable(resultArray);
+                UpdateTable(resultArray, i);
             }
 
             ApplySeriesToChart();
@@ -97,15 +104,6 @@ namespace SortComplexityDifferenceProject
 
         private void UpdateChart(int[] values, int index)
         {
-            /*String test = $"Index: {index}\n" +
-                $"Quick Sort: {values[0]}\n" +
-                $"Bubble Sort: {values[1]}\n" +
-                $"Selection Sort: {values[2]}\n" +
-                $"Shell Sort: {values[3]}\n" +
-                $"Bogo Sort: {values[4]}\n";
-
-            MessageBox.Show(test);*/
-
             QuickSort.Points.AddXY(index, values[0]);
             BubbleSort.Points.AddXY(index, values[1]);
             SelectionSort.Points.AddXY(index, values[2]);
@@ -113,13 +111,16 @@ namespace SortComplexityDifferenceProject
             BogoSort.Points.AddXY(index, values[4]);
         }
 
-        private void UpdateTable(int[] values)
+        private void UpdateTable(int[] values, int index)
         {
-            /*dataGridView.Rows[0].Cells["quickSortColumn"].Value = values[0];
-            dataGridView.Rows[0].Cells["bubbleSortColumn"].Value = values[1];
-            dataGridView.Rows[0].Cells["selectionSortColumn"].Value = values[2];
-            dataGridView.Rows[0].Cells["shellSortColumn"].Value = values[3];
-            dataGridView.Rows[0].Cells["bogoSortColumn"].Value = values[4];*/
+            int newRow = dataGridView.Rows.Add();
+            dataGridView.Rows[newRow].HeaderCell.Value = index.ToString();
+
+            dataGridView.Rows[newRow].Cells["quickSortColumn"].Value = values[0];
+            dataGridView.Rows[newRow].Cells["bubbleSortColumn"].Value = values[1];
+            dataGridView.Rows[newRow].Cells["selectionSortColumn"].Value = values[2];
+            dataGridView.Rows[newRow].Cells["shellSortColumn"].Value = values[3];
+            dataGridView.Rows[newRow].Cells["bogoSortColumn"].Value = values[4];
         }
 
         private Series CreateSeries (string name)
@@ -145,14 +146,14 @@ namespace SortComplexityDifferenceProject
             complexityChart.ChartAreas[0].AxisX.Minimum = 3;
         }
 
-        private void ClearChart () 
+        private void ClearData () 
         {
             foreach (var series in complexityChart.Series)
-            {
                 series.Points.Clear();
-            }
+
             complexityChart.Series.Clear();
             complexityChart.Legends.Clear();
+            dataGridView.Rows.Clear();
         }
     }
 }
