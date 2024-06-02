@@ -33,7 +33,12 @@ namespace SortComplexityDifferenceProject
             return counter;
         }
 
-        public static int QuickSort(int[] originalArray, int leftIndex, int rightIndex, ref int counter, bool isFirstCall = false)
+        public static int QuickSort(
+            int[] originalArray,
+            int leftIndex,
+            int rightIndex,
+            ref int counter,
+            bool isFirstCall = false)
         {
             int[] array = isFirstCall ? (int[])originalArray.Clone() : originalArray;
 
